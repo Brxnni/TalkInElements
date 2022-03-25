@@ -4,16 +4,20 @@
     <link rel = "stylesheet" href = "style.css">
     <meta charset = "UTF-8">
     <title>Talk in Elements!</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@200;300;400;700&family=Roboto&display=swap" rel="stylesheet">
 </head>
 
 <!-- JavaScript -->
 <script defer src = "./main.js"></script>
 
 <body>
-    <input id = "textInput" type = "text"/>
+<div class = "form__group">
+    <input id = "textInput" type = "text" class="form__input" placeholder="insert word"/>
     <button id = "generateButton" onclick = "generate();">Generate!</button>
-
     <div id = "blocks"></div>
+</div>
 </body>
 
 </html>
