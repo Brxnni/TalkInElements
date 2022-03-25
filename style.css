@@ -1,0 +1,7 @@
+div.block {
+    width: 50px;
+    height: 100px;
+    background-color: gray;
+    margin: 2vh;
+    padding: 2vh;
+}
