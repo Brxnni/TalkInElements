@@ -34,7 +34,7 @@ function generate(){
 
     // Convert to list of element symbols
     solutions = [];
-    recursiveSolve(text);
+    recursiveSolve(text, []);
 
     // Add symbols
     div = document.getElementById("blocks");
