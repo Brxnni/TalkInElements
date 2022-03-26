@@ -36,8 +36,12 @@ function generate(){
     solutions = [];
     recursiveSolve(text, []);
 
-    // Add symbols
     div = document.getElementById("blocks");
+    
+    // Remove already present blocks
+    while (div.firstChild){ div.removeChild(div.firstChild); }
+    
+    // Add symbols
     for (symbol of solutions[0]){
         block = document.createElement("div")
         block.innerHTML = symbol;
