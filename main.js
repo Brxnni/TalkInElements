@@ -47,8 +47,6 @@ function generate(){
         // Check if a solution was even found
         // If not, display error message
         if (solutions.length == 0){
-            while (div.firstChild){ div.removeChild(div.firstChild); }
-
             block = document.createElement("div")
             block.innerHTML = "Not possible :(";
             block.classList.add("blockerror");
