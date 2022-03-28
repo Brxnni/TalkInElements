@@ -53,7 +53,7 @@ function generate(){
         for (symbol of solutions[0]){
             // Create element
             block = document.createElement("div")
-            block.innerHTML = symbol;
+            block.innerHTML = symbol.charAt(0).toUpperCase() + symbol.slice(1);
             block.classList.add("block");
 
             let colorString = "#ffffff";
@@ -63,7 +63,7 @@ function generate(){
                 colorString = "#20C8D3";
             // Halogens
             } else if (["f","cl","br","i","at","ts"].includes(symbol)){
-                colorString = "#945C05";
+                colorString = "#9FBF35";
             // Noble gases
             } else if (["he","ne","ar","kr","xe","rn","og"].includes(symbol)){
                 colorString = "#30C337";
