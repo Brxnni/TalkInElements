@@ -35,6 +35,9 @@
   align-items: center;
   border-radius: 5px;
 }
+.space {
+  width: 25px;
+}
 body{
   text-align: center;
   font-family: 'Roboto', sans-serif;
