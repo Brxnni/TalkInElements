@@ -1,3 +1,7 @@
+#blocks{
+  justify-content: center;
+  display: flex;
+}
 .block {
   width: 50px;
   height: 50px;
@@ -8,6 +12,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  border-radius: 5px;
 }
 body{
   text-align: center;
