@@ -1,36 +1,30 @@
-const elements = ["w", "h", "o", "re", "ho", "r"]
-let solutions = [];
+const elements = ["h", "he", "li", "be", "b", "c", "n", "o", "f", "ne", "na", "mg", "al", "si", "p", "s", "cl", "ar", "k", "ca", "sc", "ti", "v", "cr", "mn", "fe", "co", "ni", "cu", "zn", "ga", "ge", "as", "se", "br", "kr", "rb", "sr", "y", "zr", "nb", "mo", "tc", "ru", "rh", "pd", "ag", "cd", "in", "sn", "sb", "te", "i", "xe", "cs", "ba", "la", "ce", "pr", "nd", "pm", "sm", "eu", "gd", "tb", "dy", "ho", "er", "tm", "yb", "lu", "hf", "ta", "w", "re", "os", "ir", "pt", "au", "hg", "tl", "pb", "bi", "po", "at", "rn", "fr", "ra", "ac", "th", "pa", "u", "np", "pu", "am", "cm", "bk", "cf", "es", "fm", "md", "no", "lr", "rf", "db", "sg", "bh", "hs", "mt", "ds", "rg", "cn", "nh", "fl", "mc", "lv", "ts", "og", "uue"]
+let solutions;
 
-// Fuck this function. Doesn't even work right.
-function getSymbols(text, symbols = []){
+function recursiveSolve(text, symbolList){
 
-    console.log(text, symbols);
-    if (text.length == 0){ solutions.push(symbols); return; }
+    if (text.length == 0){ solutions.push(symbolList); return; }
 
-    let newText;
-    let newSymbols;
-
-    console.log("Checking if", text.substr(0, 1), "exists...");
     if (elements.includes( text.substr(0, 1) )){
 
-        newText = text.substr(1);
-        newSymbols = symbols;
-        newSymbols.push(text.substr(0, 1));
+        let newText = text.substr(1);
+        let newSymbolList = symbolList;
+        newSymbolList.push(text.substr(0, 1));
 
-        getSymbols(newText, newSymbols);
+        recursiveSolve(newText, newSymbolList);
+
+    }
+
+    else if (elements.includes( text.substr(0, 2) )){
+
+        let newText = text.substr(2);
+        let newSymbolList = symbolList;
+        newSymbolList.push(text.substr(0, 2));
+
+        recursiveSolve(newText, newSymbolList);
 
     }
 
-    console.log("Checking if", text.substr(0, 2), "exists...");
-    if (elements.includes( text.substr(0, 2) )){
-
-        newText = text.substr(2);
-        newSymbols = symbols;
-        newSymbols.push(text.substr(0, 2));
-
-        getSymbols(newText, newSymbols);
-
-    }
 }
 
 function generate(){
@@ -39,13 +33,16 @@ function generate(){
     text = document.getElementById("textInput").value;
 
     // Convert to list of element symbols
-    solutions = []
-    // getSymbols(text);
-    symbols = ["Ho", "Ho", "Ho"];
+    solutions = [];
+    recursiveSolve(text, []);
 
-    // Add symbols
     div = document.getElementById("blocks");
-    for (symbol of symbols){
+    
+    // Remove already present blocks
+    while (div.firstChild){ div.removeChild(div.firstChild); }
+    
+    // Add symbols
+    for (symbol of solutions[0]){
         block = document.createElement("div")
         block.innerHTML = symbol;
         block.classList.add("block");
@@ -53,6 +50,3 @@ function generate(){
         div.appendChild(block)
     }
 }
-
-getSymbols("whore");
-console.log(solutions);
