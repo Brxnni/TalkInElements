@@ -97,6 +97,9 @@ function generate(){
                 // Actinides
                 } else if (["ac","th","pa","u","np","pu","am","cm","bk","cf","es","fm","md","no","lr"].includes(symbol)){
                     colorString = "#82DAE8";
+                // Pseudoelements
+                } else if (["d","t"].includes(symbol)){
+                    colorString = "#DDDDDD";
                 }
 
                 // Create corner text
