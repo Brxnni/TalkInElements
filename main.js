@@ -5,21 +5,21 @@ function recursiveSolve(text, symbolList){
 
     if (text.length == 0){ solutions.push(symbolList); return; }
 
-    if (elements.includes( text.substr(0, 1) )){
+    if (elements.includes( text.substr(0, 2) )){
 
-        let newText = text.substr(1);
-        let newSymbolList = symbolList;
-        newSymbolList.push(text.substr(0, 1));
+        let newText = text.substr(2);
+        let newSymbolList = symbolList.concat([text.substr(0, 2)]);
 
         recursiveSolve(newText, newSymbolList);
 
     }
 
-    else if (elements.includes( text.substr(0, 2) )){
+    if (elements.includes( text.substr(0, 1) )){
 
-        let newText = text.substr(2);
-        let newSymbolList = symbolList;
-        newSymbolList.push(text.substr(0, 2));
+        let newText = text.substr(1);
+        console.log("symbol list", symbolList);
+        let newSymbolList = symbolList.concat([text.substr(0, 1)]);
+        console.log("old vs. new", symbolList, newSymbolList);
 
         recursiveSolve(newText, newSymbolList);
 
