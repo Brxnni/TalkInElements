@@ -11,7 +11,19 @@
   align-items: center;
   border-radius: 5px;
 }
+.cornertext {
+  position: absolute;
+  font-size: 15px;
+  top: 3px;
+  left: 3px;
+}
+.bottomtext {
+  position: absolute;
+  font-size: 15px;
+  bottom: 3px;
+}
 .block {
+  position: relative;
   width: 100px;
   height: 100px;
   background-color: gray;
