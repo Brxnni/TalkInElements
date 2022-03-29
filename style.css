@@ -6,7 +6,7 @@
 .blockerror {
 	margin: 0.5vh;
 	padding: 2vh;
-	float:left;
+	float: left;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -33,7 +33,7 @@
 	background-color: gray;
 	margin: 0.5vh;
 	padding: 2vh;
-	float:left;
+	float: left;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -69,7 +69,7 @@ body {
 }
 
 button {
-	position:relative;
+	position: relative;
 	padding: 10px 20px;  
 	border: none;
 	background: none;
@@ -101,7 +101,7 @@ button:focus {
 	position: absolute;
 	white-space: nowrap;
 	padding: 40px 40px;
-	pointer-events:none;
+	pointer-events: none;
 }
   
 button::after {
@@ -160,7 +160,7 @@ button::before {
 	display: block;
 	border-bottom: 0.3rem solid transparent;
 	transition: all 0.3s;
-	margin-bottom:10px;
+	margin-bottom: 10px;
 }
     
 .form__input:placeholder-shown + .form__label {
