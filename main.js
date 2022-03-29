@@ -131,7 +131,7 @@ function generate(){
 
     }
 
-    // Delete last pace
+    // Delete last space
     blockContainer.removeChild(blockContainer.lastChild);
 }
 
