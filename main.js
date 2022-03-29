@@ -144,8 +144,10 @@ function changeLanguage(){
     for (var i = 0; i < children.length; i++) {
         let block = children[i];
         let classes = block.className.split(" ");
+        if (classes.includes("space")){ continue; }
         let symbol = classes[1].replaceAll("_", "");
         let textDiv = block.children[2];
+        console.log(block.children);
         if (useEnglish){ textDiv.innerHTML = namesEN[symbol]; }
         else { textDiv.innerHTML = namesDE[symbol]; }
     }
