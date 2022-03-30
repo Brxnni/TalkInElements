@@ -1,6 +1,6 @@
 const elements = ["h", "he", "li", "be", "b", "c", "n", "o", "f", "ne", "na", "mg", "al", "si", "p", "s", "cl", "ar", "k", "ca", "sc", "ti", "v", "cr", "mn", "fe", "co", "ni", "cu", "zn", "ga", "ge", "as", "se", "br", "kr", "rb", "sr", "y", "zr", "nb", "mo", "tc", "ru", "rh", "pd", "ag", "cd", "in", "sn", "sb", "te", "i", "xe", "cs", "ba", "la", "ce", "pr", "nd", "pm", "sm", "eu", "gd", "tb", "dy", "ho", "er", "tm", "yb", "lu", "hf", "ta", "w", "re", "os", "ir", "pt", "au", "hg", "tl", "pb", "bi", "po", "at", "rn", "fr", "ra", "ac", "th", "pa", "u", "np", "pu", "am", "cm", "bk", "cf", "es", "fm", "md", "no", "lr", "rf", "db", "sg", "bh", "hs", "mt", "ds", "rg", "cn", "nh", "fl", "mc", "lv", "ts", "og", "uue", "d", "t"]
 const namesEN = {"h": "Hydrogen", "d": "Deuterium", "t": "Tritium", "he": "Helium", "li": "Lithium", "be": "Beryllium", "b": "Boron", "c": "Carbon", "n": "Nitrogen", "o": "Oxygen", "f": "Fluorine", "ne": "Neon", "na": "Sodium", "mg": "Magnesium", "al": "Aluminium", "si": "Silicon", "p": "Phosphorus", "s": "Sulfur", "cl": "Chlorine", "ar": "Argon", "k": "Potassium", "ca": "Calcium", "sc": "Scandium", "ti": "Titanium", "v": "Vanadium", "cr": "Chromium", "mn": "Manganese", "fe": "Iron", "co": "Cobalt", "ni": "Nickel", "cu": "Copper", "zn": "Zinc", "ga": "Gallium", "ge": "Germanium", "as": "Arsenic", "se": "Selenium", "br": "Bromine", "kr": "Krypton", "rb": "Rubidium", "sr": "Strontium", "y": "Yttrium", "zr": "Zirconium", "nb": "Niobium", "mo": "Molybdenum", "tc": "Technetium", "ru": "Ruthenium", "rh": "Rhodium", "pd": "Palladium", "ag": "Silver", "cd": "Cadmium", "in": "Indium", "sn": "Tin", "sb": "Antimony", "te": "Tellurium", "i": "Iodine", "xe": "Xenon", "cs": "Cesium", "ba": "Barium", "la": "Lanthanum", "ce": "Cerium", "pr": "Praseodymium", "nd": "Neodymium", "pm": "Promethium", "sm": "Samarium", "eu": "Europium", "gd": "Gadolinium", "tb": "Terbium", "dy": "Dysprosium", "ho": "Holmium", "er": "Erbium", "tm": "Thulium", "yb": "Ytterbium", "lu": "Lutetium", "hf": "Hafnium", "ta": "Tantalum", "w": "Tungsten", "re": "Rhenium", "os": "Osmium", "ir": "Iridium", "pt": "Platinum", "au": "Gold", "hg": "Mercury", "tl": "Thallium", "pb": "Lead", "bi": "Bismuth", "po": "Polonium", "at": "Astatine", "rn": "Radon", "fr": "Francium", "ra": "Radium", "ac": "Actinium", "th": "Thorium", "pa": "Protactinium", "u": "Uranium", "np": "Neptunium", "pu": "Plutonium", "am": "Americium", "cm": "Curium", "bk": "Berkelium", "cf": "Californium", "es": "Einsteinium", "fm": "Fermium", "md": "Mendelevium", "no": "Nobelium", "lr": "Lawrencium", "rf": "Rutherfordium", "db": "Dubnium", "sg": "Seaborgium", "bh": "Bohrium", "hs": "Hassium", "mt": "Meitnerium", "ds": "Darmstadtium", "rg": "Roentgenium", "cn": "Copernicium", "nh": "Nihonium", "fl": "Flerovium", "mc": "Moscovium", "lv": "Livermorium", "ts": "Tennessine", "og": "Oganesson"}
-const namesDE = {"h": "Wasserstoff", "d": "Deuterium", "t": "Tritium", "he": "Helium", "li": "Lithium", "be": "Beryllium", "b": "Bor", "c": "Kohlenstoff", "n": "Stickstoff", "o": "Sauerstoff", "f": "Fluor", "ne": "Neon", "na": "Natrium", "mg": "Magnesium", "al": "Aluminium", "si": "Silizium", "p": "Phosphor", "s": "Schwefel", "cl": "Chlor", "ar": "Argon", "k": "Kalium", "ca": "Kalzium", "sc": "Scandium", "ti": "Titan", "v": "Vanadium", "cr": "Chrom", "mn": "Mangan", "fe": "Eisen", "co": "Kobalt", "ni": "Nickel", "cu": "Copper", "zn": "Zink", "ga": "Gallium", "ge": "Germanium", "as": "Arsen", "se": "Selen", "br": "Brom", "kr": "Krypton", "rb": "Rubidium", "sr": "Strontium", "y": "Yttrium", "zr": "Zirkonium", "nb": "Niob", "mo": "Molybdän", "tc": "Technetium", "ru": "Ruthenium", "rh": "Rhodium", "pd": "Palladium", "ag": "Silber", "cd": "Cadmium", "in": "Indium", "sn": "Zinn", "sb": "Antimon", "te": "Tellur", "i": "Jod", "xe": "Xenon", "cs": "Cäsium", "ba": "Barium", "la": "Lanthan", "ce": "Cer", "pr": "Praseodym", "nd": "Neodym", "pm": "Promethium", "sm": "Samarium", "eu": "Europium", "gd": "Gadolinium", "tb": "Terbium", "dy": "Dysprosium", "ho": "Holmium", "er": "Erbium", "tm": "Thulium", "yb": "Ytterbium", "lu": "Lutetium", "hf": "Hafnium", "ta": "Tantal", "w": "Wolfram", "re": "Rhenium", "os": "Osmium", "ir": "Iridium", "pt": "Platin", "au": "Gold", "hg": "Quecksilber", "tl": "Thallium", "pb": "Blei", "bi": "Bismut", "po": "Polonium", "at": "Astat", "rn": "Radon", "fr": "Francium", "ra": "Radium", "ac": "Actinium", "th": "Thorium", "pa": "Protactinium", "u": "Uran", "np": "Neptunium", "pu": "Plutonium", "am": "Americium", "cm": "Curium", "bk": "Berkelium", "cf": "Californium", "es": "Einsteinium", "fm": "Fermium", "md": "Mendelevium", "no": "Nobelium", "lr": "Lawrencium", "rf": "Rutherfordium", "db": "Dubnium", "sg": "Seaborgium", "bh": "Bohrium", "hs": "Hassium", "mt": "Meitnerium", "ds": "Darmstadtium", "rg": "Roentgenium", "cn": "Copernicium", "nh": "Nihonium", "fl": "Flerovium", "mc": "Moscovium", "lv": "Livermorium", "ts": "Tennessine", "og": "Oganesson"}
+const namesDE = {"h": "Wasserstoff", "d": "Deuterium", "t": "Tritium", "he": "Helium", "li": "Lithium", "be": "Beryllium", "b": "Bor", "c": "Kohlenstoff", "n": "Stickstoff", "o": "Sauerstoff", "f": "Fluor", "ne": "Neon", "na": "Natrium", "mg": "Magnesium", "al": "Aluminium", "si": "Silizium", "p": "Phosphor", "s": "Schwefel", "cl": "Chlor", "ar": "Argon", "k": "Kalium", "ca": "Kalzium", "sc": "Scandium", "ti": "Titan", "v": "Vanadium", "cr": "Chrom", "mn": "Mangan", "fe": "Eisen", "co": "Kobalt", "ni": "Nickel", "cu": "Copper", "zn": "Zink", "ga": "Gallium", "ge": "Germanium", "as": "Arsen", "se": "Selen", "br": "Brom", "kr": "Krypton", "rb": "Rubidium", "sr": "Strontium", "y": "Yttrium", "zr": "Zirkonium", "nb": "Niob", "mo": "Molybdän", "tc": "Technetium", "ru": "Ruthenium", "rh": "Rhodium", "pd": "Palladium", "ag": "Silber", "cd": "Cadmium", "in": "Indium", "sn": "Zinn", "sb": "Antimon", "te": "Tellur", "i": "Jod", "xe": "Xenon", "cs": "Cäsium", "ba": "Barium", "la": "Lanthan", "ce": "Cer", "pr": "Praseodym", "nd": "Neodym", "pm": "Promethium", "sm": "Samarium", "eu": "Europium", "gd": "Gadolinium", "tb": "Terbium", "dy": "Dysprosium", "ho": "Holmium", "er": "Erbium", "tm": "Thulium", "yb": "Ytterbium", "lu": "Lutetium", "hf": "Hafnium", "ta": "Tantal", "w": "Wolfram", "re": "Rhenium", "os": "Osmium", "ir": "Iridium", "pt": "Platin", "au": "Gold", "hg": "Quecksilber", "tl": "Thallium", "pb": "Blei", "bi": "Bismut", "po": "Polonium", "at": "Astat", "rn": "Radon", "fr": "Francium", "ra": "Radium", "ac": "Actinium", "th": "Thorium", "pa": "Protactinium", "u": "Uran", "np": "Neptunium", "pu": "Plutonium", "am": "Americium", "cm": "Curium", "bk": "Berkelium", "cf": "Californium", "es": "Einsteinium", "fm": "Fermium", "md": "Mendelevium", "no": "Nobelium", "lr": "Lawrencium", "rf": "Rutherfordium", "db": "Dubnium", "sg": "Seaborgium", "bh": "Bohrium", "hs": "Hassium", "mt": "Meitnerium", "ds": "Darmstadtium", "rg": "Roentgenium", "cn": "Copernicium", "nh": "Nihonium", "fl": "Flerovium", "mc": "Moscovium", "lv": "Livermorium", "ts": "Tenness", "og": "Oganesson"}
 
 let solutions;
 let useEnglish = true;
@@ -52,6 +52,7 @@ function generate(){
             block.innerHTML = "Not possible :(";
             block.classList.add("blockerror");
 
+            // This is a really obnoxious color
             block.style.backgroundColor = "#ED0000";
             blockContainer.appendChild(block);
         }
@@ -65,7 +66,7 @@ function generate(){
                 childDiv1.innerHTML = symbol.charAt(0).toUpperCase() + symbol.slice(1);
                 block.appendChild(childDiv1);
                 block.classList.add("block");
-                block.classList.add(`__${symbol}__`)
+                block.classList.add(`__${symbol}__`);
 
                 let colorString = "#ffffff";
                 // Choose color for block based on chemical group
@@ -81,7 +82,7 @@ function generate(){
                 // Metalloids
                 } else if (["b","si","ge","as","sb","te"].includes(symbol)){
                     colorString = "#4F38E2";
-                // Post-transition metals (?)
+                // Post-transition metals
                 } else if (["al","ga","in","sn","tl","pb","bi","po","nh","fl","mc","ts"].includes(symbol)){
                     colorString = "#C179C2";
                 // Transition metals
@@ -108,7 +109,7 @@ function generate(){
                 childDiv2 = document.createElement("div");
                 if (["d", "t"].includes(symbol)){ childDiv2.innerHTML = "1"; }
                 else { childDiv2.innerHTML = elements.indexOf(symbol) + 1; }
-                childDiv2.classList.add("cornertext")
+                childDiv2.classList.add("cornertext");
                 block.appendChild(childDiv2);
 
                 // Create bottom text
@@ -118,13 +119,18 @@ function generate(){
                 childDiv3.classList.add("bottomtext")
                 block.appendChild(childDiv3);
 
+                // Set background color for element block
                 block.style.backgroundColor = colorString;
-                blockContainer.appendChild(block)
+
+                // Add block to its container
+                blockContainer.appendChild(block);
             }
         }
 
+        // Create a block that contains nothing
         block = document.createElement("div");
         block.classList.add("block");
+        // Add space class
         block.classList.add("space");
         block.style.backgroundColor = "#252525";
         blockContainer.appendChild(block);
@@ -137,6 +143,7 @@ function generate(){
 
 function changeLanguage(){
 
+    // Invert language variable
     useEnglish = !useEnglish;
     blockContainer = document.getElementById("blocks");
 
