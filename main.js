@@ -6,30 +6,42 @@ const namesDE = {"h": "Wasserstoff", "d": "Deuterium", "t": "Tritium", "he": "He
 let solutions;
 let useEnglish = true;
 let useExtended = false;
+let colorMode = "group";
 
 function recursiveSolve(text, symbolList){
 
     if (text.length == 0){ solutions.push(symbolList); return; }
+
     let usedElements = [];
     if (useExtended){ usedElements = elementsExtended; }
     else { usedElements = elements; }
 
     if (usedElements.includes( text.substr(0, 2) )){
-
         let newText = text.substr(2);
         let newSymbolList = symbolList.concat([text.substr(0, 2)]);
         recursiveSolve(newText, newSymbolList);
-
     }
 
     if (usedElements.includes( text.substr(0, 1) )){
-
         let newText = text.substr(1);
         let newSymbolList = symbolList.concat([text.substr(0, 1)]);
         recursiveSolve(newText, newSymbolList);
-
     }
 
+}
+
+function stringToColour(str) {
+    let hash = 0;
+    for (let i = 0; i < str.length; i++) {
+      hash = str.charCodeAt(i) + ((hash << 5) - hash);
+    }
+    let colour = "#";
+    for (let i = 0; i < 3; i++) {
+    	let value = (hash >> (i * 8)) & 0xFF;
+		value = 128 + Math.floor(value / 2);
+    	colour += ("00" + value.toString(16)).substr(-2);
+    }
+    return colour;
 }
 
 function generate(){
@@ -92,40 +104,45 @@ function generate(){
                 block.classList.add(`__${symbol}__`);
 
                 let colorString = "#ffffff";
-                // Choose color for block based on chemical group
-                // Non-metals
-                if (["h","c","n","o","p","s","se"].includes(symbol)){
-                    colorString = "#20C8D3";
-                // Halogens
-                } else if (["f","cl","br","i","at","ts"].includes(symbol)){
-                    colorString = "#9FBF35";
-                // Noble gases
-                } else if (["he","ne","ar","kr","xe","rn","og"].includes(symbol)){
-                    colorString = "#30C337";
-                // Metalloids
-                } else if (["b","si","ge","as","sb","te"].includes(symbol)){
-                    colorString = "#4F38E2";
-                // Post-transition metals
-                } else if (["al","ga","in","sn","tl","pb","bi","po","nh","fl","mc","ts"].includes(symbol)){
-                    colorString = "#C179C2";
-                // Transition metals
-                } else if (["sc","ti","v","cr","mn","fe","co","ni","cu","zn","y","zr","nb","mo","tc","ru","rh","pd","ag","cd","hf","ta","w","re","os","ir","pt","au","hg","rf","db","sg","bh","hs","mt","ds","rg","cn"].includes(symbol)){
-                    colorString = "#ED1312";
-                // Alkali metals
-                } else if (["li","na","k","rb","cs","fr"].includes(symbol)){
-                    colorString = "#EDEE16";
-                // Earth alkali metals
-                } else if (["be","mg","ca","st","ba","ra"].includes(symbol)){
-                    colorString = "#ED7912";
-                // Lanthanides
-                } else if (["la","ce","pr","nd","pm","sm","eu","gd","tb","dy","ho","er","tm","yt","lu"].includes(symbol)){
-                    colorString = "#F68B81";
-                // Actinides
-                } else if (["ac","th","pa","u","np","pu","am","cm","bk","cf","es","fm","md","no","lr"].includes(symbol)){
-                    colorString = "#82DAE8";
-                // Pseudoelements
-                } else if (["d","t"].includes(symbol)){
-                    colorString = "#DDDDDD";
+                if (colorMode == "group"){
+                    // Choose color for block based on chemical group
+                    // Non-metals
+                    if (["h","c","n","o","p","s","se"].includes(symbol)){
+                        colorString = "#20C8D3";
+                    // Halogens
+                    } else if (["f","cl","br","i","at","ts"].includes(symbol)){
+                        colorString = "#9FBF35";
+                    // Noble gases
+                    } else if (["he","ne","ar","kr","xe","rn","og"].includes(symbol)){
+                        colorString = "#30C337";
+                    // Metalloids
+                    } else if (["b","si","ge","as","sb","te"].includes(symbol)){
+                        colorString = "#4F38E2";
+                    // Post-transition metals
+                    } else if (["al","ga","in","sn","tl","pb","bi","po","nh","fl","mc","ts"].includes(symbol)){
+                        colorString = "#C179C2";
+                    // Transition metals
+                    } else if (["sc","ti","v","cr","mn","fe","co","ni","cu","zn","y","zr","nb","mo","tc","ru","rh","pd","ag","cd","hf","ta","w","re","os","ir","pt","au","hg","rf","db","sg","bh","hs","mt","ds","rg","cn"].includes(symbol)){
+                        colorString = "#ED1312";
+                    // Alkali metals
+                    } else if (["li","na","k","rb","cs","fr"].includes(symbol)){
+                        colorString = "#EDEE16";
+                    // Earth alkali metals
+                    } else if (["be","mg","ca","st","ba","ra"].includes(symbol)){
+                        colorString = "#ED7912";
+                    // Lanthanides
+                    } else if (["la","ce","pr","nd","pm","sm","eu","gd","tb","dy","ho","er","tm","yt","lu"].includes(symbol)){
+                        colorString = "#F68B81";
+                    // Actinides
+                    } else if (["ac","th","pa","u","np","pu","am","cm","bk","cf","es","fm","md","no","lr"].includes(symbol)){
+                        colorString = "#82DAE8";
+                    // Pseudoelements
+                    } else if (["d","t"].includes(symbol)){
+                        colorString = "#DDDDDD";
+                    }
+                } else if (colorMode == "hash"){
+					colorString = stringToColour(symbol + Date.now().toString());
+					console.log(colorString, symbol + Math.random() * 12467231)
                 }
 
                 // Create corner text
