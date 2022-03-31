@@ -119,7 +119,7 @@ button::after {
 	left: 66%;
 }
 .left {
-	sright: 66%;
+	right: 66%;
 }
 
 .right::after {

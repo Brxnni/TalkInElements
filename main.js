@@ -33,14 +33,16 @@ function recursiveSolve(text, symbolList){
 function stringToColour(str) {
     let hash = 0;
     for (let i = 0; i < str.length; i++) {
-      hash = str.charCodeAt(i) + ((hash << 5) - hash);
+        hash = str.charCodeAt(i) + ((hash << 5) - hash);
     }
+
     let colour = "#";
     for (let i = 0; i < 3; i++) {
     	let value = (hash >> (i * 8)) & 0xFF;
 		value = 128 + Math.floor(value / 2);
     	colour += ("00" + value.toString(16)).substr(-2);
     }
+
     return colour;
 }
 
@@ -141,23 +143,23 @@ function generate(){
                         colorString = "#DDDDDD";
                     }
                 } else if (colorMode == "hash"){
-					colorString = stringToColour(symbol + Date.now().toString());
-					console.log(colorString, symbol + Math.random() * 12467231)
+					colorString = stringToColour(symbol + Math.floor(Math.random() * 12467231));
+					console.log(colorString, symbol + Math.floor(Math.random() * 12467231))
                 }
 
                 // Create corner text
-                childDiv2 = document.createElement("div");
-                if (["d", "t"].includes(symbol)){ childDiv2.innerHTML = "1"; }
-                else { childDiv2.innerHTML = elements.indexOf(symbol) + 1; }
-                childDiv2.classList.add("cornertext");
-                block.appendChild(childDiv2);
+                cornerText = document.createElement("div");
+                if (["d", "t"].includes(symbol)){ v.innerHTML = "1"; }
+                else { cornerText.innerHTML = elements.indexOf(symbol) + 1; }
+                cornerText.classList.add("cornertext");
+                block.appendChild(cornerText);
 
                 // Create bottom text
-                childDiv3 = document.createElement("div");
-                if (useEnglish){ childDiv3.innerHTML = namesEN[symbol]; }
-                else { childDiv3.innerHTML = namesDE[symbol]; }
-                childDiv3.classList.add("bottomtext")
-                block.appendChild(childDiv3);
+                bottomText = document.createElement("div");
+                if (useEnglish){ bottomText.innerHTML = namesEN[symbol]; }
+                else { bottomText.innerHTML = namesDE[symbol]; }
+                bottomText.classList.add("bottomtext")
+                block.appendChild(bottomText);
 
                 // Set background color for element block
                 block.style.backgroundColor = colorString;
