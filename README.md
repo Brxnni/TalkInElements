@@ -1,5 +1,7 @@
 # TalkInElements
 
+A website made by my friend
+
 **H**ydrogen **I**odine!
 
 **Th**orium **I**odine **S**ulphur
